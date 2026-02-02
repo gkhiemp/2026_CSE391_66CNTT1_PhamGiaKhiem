@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Employee Form Full Version</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 20px;
+        font-size: 11px;
+    }
+
+    .container {
+        width: 680px;
+        margin: auto;
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 25px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+        font-weight: bold;
+        margin-top: 20px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #666;
+        font-size: 13px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    td {
+        padding: 4px 6px;
+        vertical-align: top;
+    }
+
+    .label {
+        width: 160px;
+        text-align: left;
+        font-weight: bold;
+        padding-top: 6px;
+        color: #000;
+    }
+
+    input[type="text"], select {
+        width: 100%;
+        padding: 4px;
+        border: 1px solid #777;
+        box-sizing: border-box;
+        font-size: 12px;
+        border-radius: 2px;
+    }
+
+    .read-only-val {
+        padding-top: 6px;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .radio-group label, .checkbox-group label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3px;
+        font-weight: normal;
+    }
+
+    .radio-group input, .checkbox-group input {
+        margin-right: 8px;
+    }
+
+    /* Editor Box cho phần Notes */
+    .notes-box {
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+
+    .toolbar {
+        background: #fdfdfd;
+        border-bottom: 1px solid #ccc;
+        padding: 2px;
+    }
+
+    .toolbar img {
+        height: 50px; /* Giả lập ảnh thanh công cụ trong hình */
+        display: block;
+    }
+
+    textarea {
+        width: 100%;
+        border: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 13px;
+        font-family: serif;
+        resize: vertical;
+    }
+
+    .captcha-container {
+        margin-top: 5px;
+    }
+
+    .captcha-text {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 26px;
+        letter-spacing: 10px;
+        color: #777;
+        margin-bottom: 2px;
+    }
+
+    .footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-buttons button {
+        background: #444;
+        color: white;
+        border: 1px solid #222;
+        padding: 2px 8px;
+        cursor: pointer;
+    }
+
+    .action-buttons button {
+        padding: 4px 12px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 11px;
+        margin-left: 5px;
+        border-radius: 2px;
+    }
+
+    .btn-submit { background: #444; color: white; border: 1px solid #222; }
+    .btn-cancel { background: #eee; border: 1px solid #999; color: #333; }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <form>
+        <div class="section-title">Basic Info</div>
+        <table>
+            <tr>
+                <td class="label">Employee ID</td>
+                <td><span class="read-only-val">9</span></td>
+            </tr>
+            <tr>
+                <td class="label">Last Name</td>
+                <td><span class="read-only-val">Dodsworth</span></td>
+            </tr>
+            <tr>
+                <td class="label">First Name</td>
+                <td><input type="text" value="Anne"></td>
+            </tr>
+            <tr>
+                <td class="label">Gender</td>
+                <td class="radio-group">
+                    <label><input type="radio" name="gender"> Male</label>
+                    <label><input type="radio" name="gender"> Female</label>
+                    <label><input type="radio" name="gender"> XXX</label>
+                    <label><input type="radio" name="gender" checked> ZZZ</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Title</td>
+                <td><input type="text" value="Sales Representative"></td>
+            </tr>
+            <tr>
+                <td class="label">Suffix</td>
+                <td><input type="text" value="Ms."></td>
+            </tr>
+            <tr>
+                <td class="label">BirthDate</td>
+                <td style="display: flex; align-items: center;">
+                    <input type="text" value="1969-07-02 00:00:00"> 
+                    <span style="margin-left:5px; cursor:help;">(?)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">HireDate</td>
+                <td><input type="text" value="1994-11-15 00:00:00"></td>
+            </tr>
+            <tr>
+                <td class="label">SSN # (if applicable)</td>
+                <td><input type="text" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMjU4ODhBRTdDM0QxMUU3QjY0REU3NjYwMEVCN0UyOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMjU4ODhBRDdDM0QxMUU3QjY0REU3NjYwMEVCN0UyOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTI1ODg4QUI3QzNEMTFFN0I2NERFNzY2MDBFQjdFMjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTI1ODg4QUM3QzNEMTFFN0I2NERFNzY2MDBFQjdFMjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2t rZXQgZW5kPSJyIj8+V769XwAAAKZJREFUOBFjYBgFoyEwGgKjITAYAoMhMBqC0RDAAABp6wAtf0YpYAAAAABJRU5ErkJggg=='); background-repeat: no-repeat; background-position: right 5px center; padding-right: 25px;"></td>
+            </tr>
+            <tr>
+                <td class="label">Reports To</td>
+                <td>
+                    <select style="width: auto; min-width: 120px;">
+                        <option>Buchanan</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-title">Contact Info</div>
+        <table>
+            <tr>
+                <td class="label">Email</td>
+                <td><input type="text" placeholder="name@example.com"></td>
+            </tr>
+            <tr>
+                <td class="label">Address</td>
+                <td><input type="text" value="7 Houndstooth Rd."></td>
+            </tr>
+            <tr>
+                <td class="label">City</td>
+                <td><input type="text" value="London"></td>
+            </tr>
+            <tr>
+                <td class="label">Region</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td class="label">Postal Code</td>
+                <td><input type="text" value="WG2 7LT"></td>
+            </tr>
+            <tr>
+                <td class="label">Country</td>
+                <td>
+                    <select style="width: auto; min-width: 150px;">
+                        <option>Russian Federation</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">US Home Phone</td>
+                <td><input type="text" value="(234)234-2342"></td>
+            </tr>
+            <tr>
+                <td class="label">Photo</td>
+                <td><input type="text" value="EmpID9.bmp"></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Optional Info</div>
+        <table>
+            <tr>
+                <td class="label">Notes</td>
+                <td>
+                    <div class="notes-box">
+                        <div class="toolbar">
+                            <div style="background:#f0f0f0; border:1px solid #ccc; padding:2px; display:inline-block; width:100%;">
+                                <span style="margin:0 5px; font-weight:bold;">B I S U</span> | 
+                                <span>≡ ≡ ≡</span> | 
+                                <span>X² X₁</span> | 
+                                <span>H1 H2 H3</span>
+                            </div>
+                        </div>
+                        <textarea rows="8">Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.ZZZ</textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Preferred Shift</td>
+                <td class="checkbox-group">
+                    <label><input type="checkbox"> Regular</label>
+                    <label><input type="checkbox" checked> Gravy Yard</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Active?</td>
+                <td class="checkbox-group">
+                    <label><input type="checkbox" checked></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Are you human?</td>
+                <td>
+                    <div class="captcha-container">
+                        <div class="captcha-text">T I D A W O</div>
+                        <div style="margin: 5px 0; color: #333; cursor:pointer; text-align:center; width:100%;">Click to change</div>
+                        <input type="text">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            <div class="nav-buttons">
+                <button type="button">◀</button>
+                <button type="button">▶</button>
+                <span style="margin-left:10px; color:#666;">* required</span>
+            </div>
+            <div class="action-buttons">
+                <button type="submit" class="btn-submit">💾 Submit</button>
+                <button type="reset" class="btn-cancel">✖ Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
