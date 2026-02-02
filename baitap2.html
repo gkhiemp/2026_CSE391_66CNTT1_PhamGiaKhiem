@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Khóa học sắp khai giảng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            border: 2px solid #1e90ff;
+            padding: 15px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d10000;
+            margin-bottom: 15px;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .course {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .course img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .course h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .course p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .info {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .info div {
+            margin-bottom: 4px;
+        }
+
+        .icon {
+            color: #d10000;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .courses {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .courses {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">| KHÓA HỌC SẮP KHAI GIẢNG</div>
+
+    <div class="courses">
+        <!-- Khóa 1 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=Lap+Trinh+Vien+Quoc+Te">
+            <h3>Lập trình viên quốc tế</h3>
+            <p>
+                Chương trình đào tạo chuẩn quốc tế và toàn diện. 
+                Phù hợp cho học sinh tốt nghiệp THPT, sinh viên và người định hướng theo lập trình chuyên nghiệp.
+            </p>
+            <div class="info">
+                <div><span class="icon">💰</span>Học bổng: 15.000.000 VND</div>
+                <div><span class="icon">📅</span>Khai giảng: 2/2024</div>
+                <div><span class="icon">⏱</span>Thời lượng: 2 - 2.5 năm</div>
+            </div>
+        </div>
+
+        <!-- Khóa 2 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=Web+Fullstack">
+            <h3>Lập trình Web Fullstack</h3>
+            <p>
+                Khóa học phù hợp cho người bắt đầu lập trình hoặc chuyển ngành.
+                Trang bị từ frontend đến backend, xây dựng website hoàn chỉnh.
+            </p>
+            <div class="info">
+                <div><span class="icon">🎁</span>Ưu đãi giảm 15% học phí</div>
+                <div><span class="icon">📅</span>Khai giảng: 2/2024</div>
+                <div><span class="icon">⏱</span>Thời lượng: 6 tháng</div>
+            </div>
+        </div>
+
+        <!-- Khóa 3 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=Java+Fullstack">
+            <h3>Lập trình Java Fullstack</h3>
+            <p>
+                Phát triển ứng dụng web từ cơ bản đến nâng cao bằng Java,
+                sử dụng J2EE, Servlet, JSP, Spring Framework, EJB,...
+            </p>
+            <div class="info">
+                <div><span class="icon">🎁</span>Ưu đãi giảm 15% học phí</div>
+                <div><span class="icon">📅</span>Khai giảng: 2/2024</div>
+                <div><span class="icon">⏱</span>Thời lượng: 236 giờ</div>
+            </div>
+        </div>
+
+        <!-- Khóa 4 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=PHP+Laravel">
+            <h3>Lập trình PHP & Laravel</h3>
+            <p>
+                PHP là một trong những ngôn ngữ thiết kế web mạnh nhất.
+                Khóa học trang bị kỹ năng xây dựng web hoàn chỉnh với Laravel.
+            </p>
+            <div class="info">
+                <div><span class="icon">📅</span>Khai giảng: 5/2/2024</div>
+                <div><span class="icon">💰</span>Học phí: 9.600.000 VND</div>
+                <div><span class="icon">⏱</span>Thời lượng: 36 giờ</div>
+            </div>
+        </div>
+
+        <!-- Khóa 5 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=ASP.NET">
+            <h3>Khóa học lập trình .NET</h3>
+            <p>
+                Phát triển ứng dụng web sử dụng ASP.NET Core MVC,
+                yêu cầu học viên có kiến thức C# và Frontend.
+            </p>
+            <div class="info">
+                <div><span class="icon">📅</span>Khai giảng: 2/2024</div>
+                <div><span class="icon">⏱</span>Thời lượng: 40 giờ</div>
+                <div><span class="icon">💰</span>Học phí: 6.000.000 VND</div>
+            </div>
+        </div>
+
+        <!-- Khóa 6 -->
+        <div class="course">
+            <img src="https://via.placeholder.com/400x200?text=SQL+Server">
+            <h3>Lập trình SQL Server</h3>
+            <p>
+                Trang bị kiến thức nền tảng về SQL Server:
+                lọc dữ liệu, phân tích, thiết kế và quản trị cơ sở dữ liệu.
+            </p>
+            <div class="info">
+                <div><span class="icon">📅</span>Khai giảng: 2/2024</div>
+                <div><span class="icon">💰</span>Học phí: 4.500.000 VND</div>
+                <div><span class="icon">⏱</span>Thời lượng: 30 giờ</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
